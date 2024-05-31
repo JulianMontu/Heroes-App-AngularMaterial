@@ -17,7 +17,7 @@
             <input matInput 
             type="text" 
             required
-            formControlName="superHero"/>
+            formControlName="superhero"/>
           </mat-form-field>
 
           <mat-form-field class="col-12 sm:col-6">
@@ -62,9 +62,10 @@
 
           <mat-form-field class="col-12">
             <mat-label>Alternative Image</mat-label>
-            <input matInput 
-            type="text"  
-            FormControlName="alt_img"
+            <input
+              matInput
+              type="text"
+              formControlName="alt_img"
             />
           </mat-form-field>
 
@@ -78,8 +79,9 @@
             >
                 Borrar
             </button>
-    
-    
+
+            <span></span>
+
             <button 
             mat-flat-button
             color="primary"
@@ -97,7 +99,7 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-        <img src="" alt="imagen del héroe" mart-card-image>
+        <img [src]="currentHero | heroImage " alt="imagen del héroe" mart-card-image>
     </mat-card>
   </div>
 </div>
