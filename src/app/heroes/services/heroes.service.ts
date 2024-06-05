@@ -6,11 +6,11 @@ import { enviroments } from '../../../environments/environments';
 
 @Injectable({providedIn: 'root'})
 export class HeroService {
-    
+
     private baseUrl: string = enviroments.baseUrl;
 
     constructor(private http: HttpClient) { }
-    
+
     getHeroes(): Observable<Hero[]>{
         return this.http.get<Hero[]>(`${this.baseUrl}/heroes`)
     }
@@ -38,8 +38,8 @@ export class HeroService {
     deleteHeroById(id: string): Observable<boolean>{
         return this.http.delete(`${this.baseUrl}/heroes/${id}`)
         .pipe(
-            catchError(err => of(false)),
-            map( resp => true)
+            map( resp => true),
+            catchError(err => of(false))
         );
     }
 }
