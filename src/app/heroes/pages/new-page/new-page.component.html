@@ -1,6 +1,7 @@
 <h1>
-  Editar / Agregar Héroe
-  <small>Superman</small>
+  {{ currentHero.id ? 'Editar' : 'Agregar' }}
+  héroe
+  <small *ngIf="currentHero.id"> {{currentHero.superhero}}</small>
 </h1>
 
 <mat-divider class="mb-2"> </mat-divider>
@@ -14,24 +15,24 @@
 
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
-            <input matInput 
-            type="text" 
+            <input matInput
+            type="text"
             required
             formControlName="superhero"/>
           </mat-form-field>
 
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Alter ego</mat-label>
-            <input matInput 
-            type="text" 
+            <input matInput
+            type="text"
             required
             formControlName="alter_ego" />
           </mat-form-field>
 
           <mat-form-field class="col-12">
             <mat-label>Primera aparación</mat-label>
-            <input matInput 
-            type="text" 
+            <input matInput
+            type="text"
             required
             formControlName="first_appearance"
              />
@@ -39,16 +40,16 @@
 
           <mat-form-field class="col-12">
             <mat-label>Personajes</mat-label>
-            <input matInput 
-            type="text" 
-            required 
+            <input matInput
+            type="text"
+            required
             FormControlName="characters"
             />
           </mat-form-field>
 
           <mat-form-field class="col-12">
             <mat-label>creador</mat-label>
-            <mat-select 
+            <mat-select
             required
             formControlName="publisher"
               ><mat-option
@@ -73,7 +74,8 @@
 
         <div class="flex justify-content-between">
 
-            <button 
+            <button
+            *ngIf="currentHero.id"
             mat-flat-button
             color="warn"
             >
@@ -82,7 +84,7 @@
 
             <span></span>
 
-            <button 
+            <button
             mat-flat-button
             color="primary"
             (click)="onSubmit()"
@@ -92,7 +94,7 @@
             </button>
         </div>
 
-        
+
       </mat-card-content>
     </mat-card>
   </div>
